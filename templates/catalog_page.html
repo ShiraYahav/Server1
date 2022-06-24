@@ -1,0 +1,32 @@
+<h1>Our tennis racquet catalog</h1>
+
+<form action="/catalog">
+    <h3>Search for you favourite racquet brand</h3>
+    <label for="product_company"></label>
+    <input id="product_company" type="text" name="product_company" placeholder="Product company">
+    <input type="submit" value="Find">
+</form>
+
+{% if product_company %}
+    <h2>{{ product_company }}</h2>
+    <h2>Model: {{ product_model }}</h2>
+    <h2>Weight: {{ product_weight }} grams</h2>
+    <h2>Price: {{ product_price }} USD</h2>
+{% endif %}
+
+{% if message_catalog %}
+    <h3 style="color: cornflowerblue">{{ message_catalog }}</h3>
+{% endif %}
+
+{% if racquet_dic %}
+    <div class="items-wrap">
+        {% for k, v in racquet_dic.items() %}
+            <div class="racquet-items">
+                <h4>Company: {{ k }}</h4>
+                <h4>Model: {{ v[0] }}</h4>
+                <h4>Weight: {{ v[1] }} grams</h4>
+                <h4>Price: {{ v[2] }} USD</h4>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

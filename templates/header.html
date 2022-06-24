@@ -1,0 +1,17 @@
+<div>
+    <div class="navbar" id="navbar">
+        <a href="/">Home</a>
+        <a href="/contact_page">Contact Us</a>
+        <a href="/assignment3_1">About Us</a>
+        <a href="/assignment3_2">Our Racquets</a>
+    </div>
+    <div style="margin-top: 70px">
+        {% if not session['logedin'] %}
+            <span class="font-style">User:</span>
+            <a class="font-style" href="/assignment3_2">login/register</a>
+        {% else %}
+            <span class="font-style">Welcome {{ session['username'] }}!</span>
+            <a class="font-style" href="/logout">log out</a>
+        {% endif %}
+    </div>
+</div>

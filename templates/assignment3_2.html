@@ -1,0 +1,19 @@
+{% extends('base.html') %}
+
+{% block content %}
+    <div class="body">
+        <div class="main-container content-container">
+            <div class="assign-box">
+                <div class="registration-container">
+                    {% include('login.html') %}
+                </div>
+                <div class="search-container">
+                    {% include('catalog_page.html') %}
+                </div>
+            </div>
+            <div class="image-container">
+                <img id="changeimage" src="../static/tennislogos.jpg" onclick="changeImage()" height="700px" alt="Swaggy Bunny"/>
+            </div>
+        </div>
+    </div>
+{% endblock %}

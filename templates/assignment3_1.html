@@ -1,0 +1,28 @@
+{% extends('base.html') %}
+
+{% block content %}
+    <div class="assign1-wrap">
+        <div class="assign1-content" style="margin-top: 70px;">
+            <h2>Tennis is our passion, learn about our founders' other hobbies and inspiration</h2>
+            {% set page_name = 'Users' %}
+
+            <div>Player: {{ user_info.name }}  {{ user_info.last_name }}
+            </div>
+
+            <div class="{% if user_info.gender == 'female' %}female{% else %}male{% endif %}">Sorted hobbies are:</div>
+            <div>{% for hobby in hobbies| sort %}
+                <li>{{ hobby | upper }}</li>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="assign1-img">
+            <img src="../static/img.png" onclick="changeImage()" height="700px" alt="Swaggy Bunny"/>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <div class="font-style">Please join us in our journey to a healthier body and mind</div>
+{% endblock %}
