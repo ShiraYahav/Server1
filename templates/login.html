@@ -2,7 +2,7 @@
     {% if message %}
         <h1>{{ message }}</h1>
     {% elif session['logedin'] %}
-        <h1> Hello {{ session['username'] }}!</h1>
+        <h1> Hello {{ session['username'][1] }}!</h1>
     {% else %}
 {#        <h2>Login section</h2>#}
         {% if message %}
@@ -10,8 +10,9 @@
         {% endif %}
             <h2>Please fill out your details to login/register:</h2>
             <form action="/login" method="post">
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="text" name="firstname" placeholder="your name" required>
+                <input type="password" name="password" placeholder="your password" required>
+                <input type=email name="username" placeholder="abc@def.com" pattern=".+@gmail.com"required>
                 <input type="submit">
             </form>
         {% endif %}

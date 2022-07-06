@@ -1,5 +1,4 @@
 from datetime import timedelta
-
 from flask import Flask, render_template, redirect, request, url_for, jsonify, session
 
 app = Flask(__name__)
@@ -16,12 +15,13 @@ racquet_dic = {
     'Dunlop': ['CX 200 Tour', 332, 249]
 }
 
-
 user_dict = {
-    'shira': '3425',
-    'mor': '9098'
+    'shira@gmail.com': ['0311','Shira'],
+    'michal@gmail.com': ['9098','Michal'],
+    'talya@gmail.com':['1322', 'Talya'],
+    'ofir@gmail.com':['1801', 'Ofir'],
+    'rafael@gmail.com':['1359','Rafael']
 }
-
 
 @app.route('/')
 def home():
@@ -50,20 +50,25 @@ def login_func():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        firstname = request.form['firstname']
         if username in user_dict:
-            pas_in_dict = user_dict[username]
-            if pas_in_dict == password:
-                session['username'] = username
+            pas_in_dict = user_dict[username][0]
+            firstname_in_dict = user_dict[username][1]
+            if pas_in_dict == password and firstname_in_dict == firstname:
+                session['username'] = user_dict[username][1]
                 session['logedin'] = True
-                return render_template('assignment3_2.html', message='Successfully logged in', usernamr=username, users=user_dict)
+                return render_template('assignment3_2.html', message='Successfully logged in', username=username, users=user_dict)
             else:
-                return render_template('assignment3_2.html', message='Wrong password',  users=user_dict)
+                if pas_in_dict != password:
+                    return render_template('assignment3_2.html', message='Wrong password',  users=user_dict)
+                elif firstname_in_dict != firstname:
+                    return render_template('assignment3_2.html', message='Wrong first name', users=user_dict)
         else:
-            user_dict[username] = password
-            session['username'] = username
-            session['logedin'] = True
-
-            return render_template('assignment3_2.html', message='Thank you ' + session['username'] + ' for registering to our site!',  users=user_dict)
+                user_dict[username][0] = password
+                user_dict[username][1] = firstname
+                session['username']= user_dict[username][1]
+                session['logedin'] = True
+                return render_template('assignment3_2.html', message='Thank you ' + session['username'][1] + ' for registering to our site!',  users=user_dict)
     return render_template('assignment3_2.html', users=user_dict)
 
 
@@ -94,6 +99,9 @@ def racquet_catalog():
 def session_func():
     return jsonify(dict(session))
 
+##assignment_4
+from Pages.assignment_4.assignment_4 import assignment_4
+app.register_blueprint(assignment_4)
 
 if __name__ == '__main__':
     app.run()

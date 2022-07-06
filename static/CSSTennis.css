@@ -123,6 +123,18 @@
     float: none;
 }
 
+#buttons {
+    background-color: #ffffff;
+    color: dimgrey;
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 17px;
+    margin: 10px 20px;
+    cursor: pointer;
+    float: none;
+}
+
 .active {
     border: 2px solid rgb(177, 194, 22);
     border-radius: 5px;
@@ -178,4 +190,20 @@
     font-size: 17px;
     color: rgb(83, 74, 74);
     text-align: center;
+}
+
+.form_background {
+  background-color: lightgrey;
+}
+.forms{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(232, 217, 237, 0.3);
+    color: rgb(76, 166, 25);
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
