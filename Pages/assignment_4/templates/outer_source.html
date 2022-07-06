@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% include ('assignment4_js_ref.html') %}
-{#<script defer src={{url_for('assignment_4.static', filename = 'assignment_4js.js') }}></script>#}
 
 {% block content %}
     <br>
@@ -8,19 +7,19 @@
         <h1>Frontend Request</h1>
         <form id="frontend_req">
             <label for="User name">ID request:</label>
-            <input id="user_id" type="number" name="user_id" placeholder="ID number" required>
-            <button type="button" onclick="getUser()" id="buttons"> get details</button>
+            <input id="ID" type="number" name="ID" placeholder="ID number" required>
+            <button type="button" onclick="fetchUser()" id="buttons"> get details</button>
         </form>
 
         <h1>Backend Request</h1>
-        <form id="backend_req" action="/assignment_4/outer_source/fetch_backend" method="get">
+        <form id="backend_req" action="/outer_source/backend_req" method="get">
              <label for="User name">ID request:</label>
-            <input type=int id="user_id" name="user_id" placeholder="ID number" required>
+            <input type=int id="uID" name="uID" placeholder="ID number" required>
             <input type="submit"  value="get details" id="buttons"/>
         </form>
     </div>
 
-    <div id="place_holder_for_response"></div>
+    <div id="frontend_request"></div>
     <br>
     {% if request_data %}
         <h3> {{ request_data.first_name }} {{ request_data.last_name }} </h3>

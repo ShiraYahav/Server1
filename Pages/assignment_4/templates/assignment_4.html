@@ -9,8 +9,8 @@
                 <input type=email name="username" placeholder="abc@def.com" pattern=".+@gmail.com"required>
                 <input type="submit" value="insert" id="buttons">
             </form>
-                {% if message2 %}
-                <h3 style="color: #3ccc58">{{ message2 }}</h3>
+                {% if message1 %}
+                <h3 style="color: grey">{{ message1 }}</h3>
                 {% endif %}
 
             <h2>Update form:</h2>
@@ -20,8 +20,8 @@
                 <input type=email name="username" placeholder="abc@def.com" pattern=".+@gmail.com"required>
                 <input type="submit" value="update" id="buttons">
             </form>
-                {% if message1 %}
-                <h3 style="color: #3ccc58">{{ message1 }}</h3>
+                {% if message2 %}
+                <h3 style="color: grey" >{{ message2 }}</h3>
                 {% endif %}
 
             <h2>Delete form:</h2>
@@ -31,7 +31,7 @@
                 <input type="submit" value="delete" id="buttons">
             </form>
                     {% if message3 %}
-                <h3 style="color: #3ccc58">{{ message3 }}</h3>
+                <h3 style="color: grey">{{ message3 }}</h3>
                 {% endif %}
 
     <h3>All active users:</h3>
